@@ -7,10 +7,10 @@ from flask import Flask, jsonify, request
 app = Flask(__name__)
 
 
-MONGO_USER = os.getenv('MONGO_USER', 'djlau12')
-MONGO_PASS = os.getenv('MONGO_PASS', 'fby8oQ6Ytox49W6v')
-MONGO_CLUSTER = os.getenv('MONGO_CLUSTER', 'cluster0.x2l20.mongodb.net')
-MONGO_DB = os.getenv('MONGO_DB', 'ecommerce')
+MONGO_USER = os.getenv('MONGO_USER', 'djlau12') #troque 'djlau12' pelo seu nome de usuário do Atlas, ou defina a variável de ambiente MONGO_USER
+MONGO_PASS = os.getenv('MONGO_PASS', 'fby8oQ6Ytox49W6v') #troque 'fby8oQ6Ytox49W6v' pela sua senha do Atlas, ou defina a variável de ambiente MONGO_PASS
+MONGO_CLUSTER = os.getenv('MONGO_CLUSTER', 'cluster0.x2l20.mongodb.net') #troque 'cluster0.x2l20.mongodb.net' pelo endereço do seu cluster no Atlas, ou defina a variável de ambiente MONGO_CLUSTER
+MONGO_DB = os.getenv('MONGO_DB', 'ecommerce') #troque 'ecommerce' pelo nome do seu banco de dados no Atlas, ou defina a variável de ambiente MONGO_DB
 
 if not MONGO_PASS:
     raise RuntimeError(
