@@ -2,7 +2,7 @@ import os
 from urllib.parse import quote_plus
 from pymongo import MongoClient
 from bson.objectid import ObjectId
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, send_from_directory
 
 app = Flask(__name__)
 
@@ -79,5 +79,16 @@ def remover_produto(id):
     else:
         return jsonify({"erro": "Produto não encontrado"}), 404
 
+# Rota para a página inicial (Frontend)
+@app.route('/')
+def index():
+    return send_from_directory('frontend', 'index.html')
+
+# Rota para servir os arquivos estáticos do frontend
+@app.route('/<path:filename>')
+def serve_static(filename):
+    return send_from_directory('frontend', filename)
+
 if __name__ == '__main__':
     app.run(debug=True)
+

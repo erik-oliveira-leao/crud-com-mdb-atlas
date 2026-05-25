@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Produtos Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">
+            <h1>TechStore Elegance</h1>
+        </div>
+        <button id="add-product-btn" class="btn-primary">
+            + Novo Produto
+        </button>
+    </header>
+
+    <main class="container">
+        <section class="products-header">
+            <h2>Nossos Produtos</h2>
+            <p>Descubra nossa coleção exclusiva.</p>
+        </section>
+
+        <div id="products-grid" class="products-grid">
+            <!-- Os produtos serão carregados aqui via JavaScript -->
+        </div>
+    </main>
+
+    <!-- Modal para Adicionar/Editar Produto -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal" class="close-btn">&times;</span>
+            <h2 id="modal-title">Adicionar Produto</h2>
+            <form id="product-form">
+                <input type="hidden" id="product-id">
+                
+                <div class="form-group">
+                    <label for="nome">Nome do Produto</label>
+                    <input type="text" id="nome" required placeholder="Ex: Smartphone XYZ">
+                </div>
+                
+                <div class="form-group">
+                    <label for="preco">Preço (R$)</label>
+                    <input type="number" id="preco" required step="0.01" placeholder="Ex: 2999.99">
+                </div>
+                
+                <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao" required rows="3" placeholder="Descrição detalhada do produto..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="imagem">URL da Imagem</label>
+                    <input type="url" id="imagem" placeholder="https://exemplo.com/imagem.jpg">
+                </div>
+                
+                <button type="submit" class="btn-submit">Salvar Produto</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast de Notificação -->
+    <div id="toast" class="toast"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
